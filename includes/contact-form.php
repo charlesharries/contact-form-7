@@ -423,7 +423,9 @@ class WPCF7_ContactForm {
 			$atts['name'] = $name_attr;
 		}
 
-		$atts = wpcf7_format_atts( $atts );
+		$atts = wpcf7_format_atts(
+			apply_filters( 'wpcf7_form_atts', $atts )
+		);
 
 		$html .= sprintf( '<form %s>', $atts ) . "\n";
 		$html .= $this->form_hidden_fields();
